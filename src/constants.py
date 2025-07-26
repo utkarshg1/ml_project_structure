@@ -12,6 +12,9 @@ MODEL_PATH = Path("models", "iris_model.joblib")
 # Target feature
 TARGET = "species"
 
+# Impute strategy
+IMPUTE_STRAT = "median"
+
 # Test size
 TEST_SIZE = 0.33
-RANDOM_STATE = 42
+RANDOM_STATE = 21

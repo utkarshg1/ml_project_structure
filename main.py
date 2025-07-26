@@ -9,23 +9,24 @@ def main():
     logger.info("Data Ingestion started")
     download_data()
     df = pd.read_csv(DATA_PATH)
-    logger.info(f"Dataframe loaded with shape : {df.shape}")
+    logger.success(f"Dataframe loaded with shape : {df.shape}")
 
     logger.info(f"Checking duplicates : {df.duplicated().sum()}")
     df = df.drop_duplicates(keep="first").reset_index(drop=True)
-    logger.info(f"Dropped duplicates new shape : {df.shape}")
+    logger.success(f"Dropped duplicates new shape : {df.shape}")
 
     logger.info("Seperating X and Y")
     X = df.drop(columns=[TARGET])
     Y = df[TARGET]
-    logger.info("X and Y seperation complete")
+    logger.success("X and Y seperation complete")
 
     logger.info("Applying train test split")
     xtrain, xtest, ytrain, ytest = train_test_split(
         X, Y, test_size=TEST_SIZE, random_state=RANDOM_STATE
     )
-    logger.info(f"xtrain shape : {xtrain.shape}, ytrain shape : {ytrain.shape}")
-    logger.info(f"xtest shape : {xtest.shape}, ytest shape : {ytest.shape}")
+    logger.success(f"xtrain shape : {xtrain.shape}, ytrain shape : {ytrain.shape}")
+    logger.success(f"xtest shape : {xtest.shape}, ytest shape : {ytest.shape}")
+
 
 if __name__ == "__main__":
     main()
