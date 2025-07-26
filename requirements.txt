@@ -1,0 +1,7 @@
+loguru
+requests
+numpy
+pandas
+scikit-learn
+joblib
+streamlit
