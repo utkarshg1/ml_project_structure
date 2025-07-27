@@ -4,6 +4,7 @@ from src.logging_config import logger
 from src.constants import DATA_PATH, TARGET, TEST_SIZE, RANDOM_STATE
 from src.data import download_data
 from src.model_trainer import ModelTrainer
+from src.model_evaluator import ModelEvaluator
 
 
 def main():
@@ -31,6 +32,11 @@ def main():
     trainer = ModelTrainer()
     trainer.train_model(xtrain, ytrain)
     trainer.save_model()
+
+    evaluator = ModelEvaluator(trainer.model)
+    evaluator.evaluate(xtrain, ytrain, xtest, ytest)
+
+    logger.success("Training Pipeline Successful")
 
 
 if __name__ == "__main__":
