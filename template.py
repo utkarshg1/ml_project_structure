@@ -18,6 +18,7 @@ def generate_project_structure():
         Path("src", "logging_config.py"),
         Path("src", "data.py"),
         Path("src", "model_trainer.py"),
+        Path("src", "model_evaluator.py"),
         Path("src", "predict.py"),
         Path("data", ".gitkeep"),
         Path("models", ".gitkeep"),
@@ -60,9 +61,7 @@ def add_logs_to_gitignore():
 
         # Check if the primary ignore patterns are already present
         if "logs/" in existing_content and "*.log" in existing_content:
-            print(
-                "Log ignore entries already present in .gitignore. No changes made."
-            )
+            print("Log ignore entries already present in .gitignore. No changes made.")
             return
 
         # Append the new content (will create .gitignore if it doesn't exist)

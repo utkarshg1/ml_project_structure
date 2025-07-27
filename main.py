@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from src.logging_config import logger
 from src.constants import DATA_PATH, TARGET, TEST_SIZE, RANDOM_STATE
 from src.data import download_data
+from src.model_trainer import ModelTrainer
 
 
 def main():
@@ -26,6 +27,10 @@ def main():
     )
     logger.success(f"xtrain shape : {xtrain.shape}, ytrain shape : {ytrain.shape}")
     logger.success(f"xtest shape : {xtest.shape}, ytest shape : {ytest.shape}")
+
+    trainer = ModelTrainer()
+    trainer.train_model(xtrain, ytrain)
+    trainer.save_model()
 
 
 if __name__ == "__main__":
