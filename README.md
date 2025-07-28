@@ -13,7 +13,6 @@ A machine learning project for classifying Iris flower species using Logistic Re
 - [Configuration](#-configuration)
 - [API Reference](#-api-reference)
 - [Logging](#-logging)
-- [Contributing](#-contributing)
 - [Author](#-author)
 - [License](#-license)
 
