@@ -25,3 +25,4 @@ if button:
     st.subheader(f"Prediction : {preds}")
     st.subheader(f"Probabilities : ")
     st.dataframe(probs)
+    st.bar_chart(probs.T)

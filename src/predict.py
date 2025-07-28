@@ -45,4 +45,4 @@ class IrisPredictor:
         classes = self.model.classes_
         probs_df = pd.DataFrame(probs, columns=classes)
         logger.info(f"Predicted probabilities :\n{probs_df}")
-        return probs_df
+        return probs_df.round(4)
