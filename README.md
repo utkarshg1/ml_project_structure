@@ -4,15 +4,18 @@ A machine learning project for classifying Iris flower species using Logistic Re
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Details](#model-details)
-- [API Reference](#api-reference)
-- [Contributing](#contributing)
-- [License](#license)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Model Details](#-model-details)
+- [Configuration](#-configuration)
+- [API Reference](#-api-reference)
+- [Logging](#-logging)
+- [Contributing](#-contributing)
+- [Author](#-author)
+- [License](#-license)
 
 ## 🌸 Overview
 
@@ -63,30 +66,26 @@ iris-classification/
 ### Setup
 
 1. **Clone the repository**
-
    ```bash
    git clone <repository-url>
    cd iris-classification
    ```
 
 2. **Install uv** (if not already installed)
-
    ```bash
    # On macOS and Linux
    curl -LsSf https://astral.sh/uv/install.sh | sh
-
+   
    # On Windows
    powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
    ```
 
 3. **Install dependencies using uv**
-
    ```bash
    uv sync
    ```
 
    **Alternative: Using pip**
-
    ```bash
    pip install -r requirements.txt
    ```
@@ -106,7 +105,6 @@ uv run --with-requirements requirements.txt python main.py
 ```
 
 This will:
-
 - Download the Iris dataset
 - Preprocess the data (handle duplicates, split features/target)
 - Train a Logistic Regression model with preprocessing pipeline
@@ -126,7 +124,6 @@ streamlit run app.py
 ```
 
 Then open your browser to `http://localhost:8501` and:
-
 1. Enter the sepal length, width, petal length, and width measurements
 2. Click "Predict" to get the species classification and prediction probabilities
 
@@ -149,23 +146,19 @@ print(f"Prediction probabilities: {probabilities}")
 ## 🤖 Model Details
 
 ### Algorithm
-
 - **Model**: Logistic Regression
 - **Preprocessing Pipeline**:
   - Simple Imputer (median strategy)
   - Standard Scaler for feature normalization
 
 ### Performance Metrics
-
 The model is evaluated using:
-
 - F1-score (macro average)
 - Classification report
 - 5-fold cross-validation
 - Training and testing performance comparison
 
 ### Dataset
-
 - **Source**: [Iris Dataset](https://raw.githubusercontent.com/utkarshg1/iris_data/refs/heads/main/iris.csv)
 - **Features**: 4 numerical features (sepal_length, sepal_width, petal_length, petal_width)
 - **Target**: 3 classes (setosa, versicolor, virginica)
@@ -174,11 +167,9 @@ The model is evaluated using:
 ## 🔧 Configuration
 
 ### Project Configuration (`pyproject.toml`)
-
 This project uses `pyproject.toml` for modern Python packaging and dependency management with uv.
 
 ### Application Configuration (`src/constants.py`)
-
 Key configuration parameters:
 
 ```python
@@ -192,7 +183,6 @@ RANDOM_STATE = 21
 ```
 
 ### Dependencies
-
 - All dependencies are managed through `uv.lock` for reproducible builds
 - `requirements.txt` is also available for traditional pip installations
 
@@ -229,11 +219,24 @@ class ModelEvaluator:
 ## 📝 Logging
 
 The project uses Loguru for comprehensive logging:
-
 - **Console Output**: Colored, formatted logs for development
 - **File Output**: Rotating log files in `logs/app.log`
 - **Log Rotation**: 10MB rotation with 7-day retention
 - **Compression**: Automatic ZIP compression of old logs
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Update dependencies if needed:
+   ```bash
+   uv add <package-name>  # Add new dependency
+   uv sync                # Sync dependencies
+   ```
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
 
 ### Development Workflow with uv
 
