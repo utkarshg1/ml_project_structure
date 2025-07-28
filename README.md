@@ -241,11 +241,8 @@ The project uses Loguru for comprehensive logging:
 ### Development Workflow with uv
 
 ```bash
-# Add development dependencies
-uv add --dev pytest black flake8
-
 # Run scripts
-uv run python main.py
+uv run main.py
 uv run streamlit run app.py
 
 # Update dependencies
