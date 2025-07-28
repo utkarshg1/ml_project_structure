@@ -2,19 +2,16 @@ import os
 import sys
 from loguru import logger
 
-# Create logs directory if it doesn't exist
-os.makedirs("logs", exist_ok=True)
-
 logger.remove()
 
 # Console (stream) handler
 logger.add(
-    sys.stdout, 
-    level="INFO", 
+    sys.stdout,
+    level="INFO",
     format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | "
-           "<level>{level: <8}</level> | "
-           "<cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - "
-           "<level>{message}</level>",
+    "<level>{level: <8}</level> | "
+    "<cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - "
+    "<level>{message}</level>",
     colorize=True,  # <-- Enable color output)
 )
 # File handler
