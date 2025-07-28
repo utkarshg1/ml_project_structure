@@ -32,7 +32,7 @@ class IrisPredictor:
             }
         ]
         df = pd.DataFrame(data)
-        logger.success(f"Converted to dataframe :\n{df}")
+        logger.info(f"Converted to dataframe :\n{df}")
         return df
 
     def predict(self, x: pd.DataFrame):

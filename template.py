@@ -22,6 +22,7 @@ def generate_project_structure():
         Path("src", "predict.py"),
         Path("data", ".gitkeep"),
         Path("models", ".gitkeep"),
+        Path("app.py"),
     ]
 
     # create directories first
